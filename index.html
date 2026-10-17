@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Khalid Momand — Operations, Finance &amp; Code</title>
+<meta name="description" content="Portfolio of Mohammad Khalid Momand — 11 years across operations, accounting, and software development. Python/Django developer and business leader based in Kabul, Afghanistan.">
+<meta name="theme-color" content="#07080d">
+<meta property="og:title" content="Mohammad Khalid Momand — Operations, Finance & Code">
+<meta property="og:description" content="11 years of operations, accounting, and software experience. Building practical systems for real businesses.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080d'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='28' font-weight='900' fill='%23ff5e3a' text-anchor='middle'%3EMK%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.remove('no-js');</script>
+<style>
+/* ============================================================
+   DESIGN TOKENS
+============================================================ */
+:root{
+  --bg:#07080d;
+  --bg-2:#0c0f18;
+  --surface:#111522;
+  --surface-2:#171c2c;
+  --text:#f1f4fb;
+  --muted:#8b96ad;
+  --line:rgba(255,255,255,.09);
+  --accent:#ff5e3a;        /* hot coral */
+  --accent-2:#ffb86b;      /* amber */
+  --accent-3:#7c5cff;      /* electric violet */
+  --accent-4:#22d3ee;      /* cyan */
+  --grad-hero:linear-gradient(120deg,#ff5e3a 0%,#ffb86b 40%,#7c5cff 100%);
+  --grad-line:linear-gradient(90deg,transparent,var(--accent),transparent);
+  --shadow:0 24px 60px rgba(0,0,0,.55);
+  --radius:20px;
+  --radius-sm:12px;
+  --maxw:1200px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --font:"Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+body{
+  margin:0;font-family:var(--font);background:var(--bg);color:var(--text);
+  line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent-2);text-decoration:none}
+a:hover{text-decoration:none}
+h1,h2,h3,h4{line-height:1.1;margin:0 0 .5em;font-weight:800;letter-spacing:-.03em}
+h1{font-size:clamp(2.4rem,7vw,5.6rem)}
+h2{font-size:clamp(1.8rem,4.5vw,3.4rem)}
+h3{font-size:clamp(1.1rem,2vw,1.35rem)}
+p{margin:0 0 1em;color:var(--muted)}
+ul{margin:0;padding-left:1.15em}
+.container{width:min(100% - 2.5rem,var(--maxw));margin-inline:auto}
+section{position:relative;padding:clamp(4rem,10vw,7.5rem) 0;scroll-margin-top:80px}
+
+/* ============================================================
+   SCROLL PROGRESS
+============================================================ */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:3px;width:0%;z-index:999;
+  background:var(--grad-hero);box-shadow:0 0 16px rgba(255,94,58,.7);
+  transition:width .06s linear;
+}
+
+/* ============================================================
+   CUSTOM CURSOR (desktop only)
+============================================================ */
+.cursor-dot,.cursor-ring{
+  position:fixed;top:0;left:0;pointer-events:none;z-index:998;
+  border-radius:50%;transform:translate(-50%,-50%);will-change:transform;
+  mix-blend-mode:difference;
+}
+.cursor-dot{width:6px;height:6px;background:#fff}
+.cursor-ring{width:34px;height:34px;border:1.5px solid rgba(255,255,255,.55);transition:width .25s,height .25s,border-color .25s,background .25s}
+.cursor-ring.hover{width:64px;height:64px;border-color:var(--accent);background:rgba(255,94,58,.12)}
+@media (hover:none),(max-width:900px){.cursor-dot,.cursor-ring{display:none}}
+
+/* ============================================================
+   SKIP LINK
+============================================================ */
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:#07080d;padding:.7rem 1.1rem;border-radius:0 0 10px 0;z-index:1000;font-weight:800}
+.skip:focus{left:0}
+
+/* ============================================================
+   NOISE + GRAIN OVERLAY
+============================================================ */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:997;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:.9rem 0;transition:background .35s var(--ease),backdrop-filter .35s;
+}
+.site-header.scrolled{
+  background:rgba(7,8,13,.78);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;gap:1rem}
+.brand{display:flex;align-items:center;gap:.7rem;font-weight:800;color:var(--text);letter-spacing:-.02em;font-size:.95rem}
+.brand .mark{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none;
+  background:var(--grad-hero);color:#07080d;font-weight:900;font-size:.9rem;
+  box-shadow:0 6px 22px rgba(255,94,58,.4);
+}
+.brand small{display:block;font-size:.62rem;font-weight:700;color:var(--muted);letter-spacing:.16em;text-transform:uppercase}
+.nav-links{display:flex;gap:.1rem;list-style:none;margin:0 0 0 auto;padding:0;flex-wrap:wrap}
+.nav-links a{
+  display:block;padding:.5rem .75rem;border-radius:9px;font-size:.85rem;font-weight:600;
+  color:var(--muted);transition:color .2s,background .2s;
+}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--text);background:rgba(255,255,255,.06)}
+.nav-links a[aria-current="true"]{color:var(--accent-2)}
+.nav-actions{display:flex;align-items:center;gap:.5rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.8rem 1.4rem;border-radius:12px;font-weight:700;font-size:.9rem;
+  border:1px solid transparent;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,background .3s,color .3s;
+  font-family:inherit;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--grad-hero);color:#07080d;box-shadow:0 10px 30px rgba(255,94,58,.35)}
+.btn-primary:hover{box-shadow:0 16px 40px rgba(255,94,58,.5)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent-2);color:var(--accent-2)}
+.nav-cta{display:inline-flex}
+.menu-btn{display:none;width:42px;height:42px;border-radius:11px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;place-items:center}
+
+/* ============================================================
+   HERO — CINEMATIC
+============================================================ */
+.hero{
+  min-height:100svh;display:flex;align-items:center;
+  padding-top:120px;padding-bottom:60px;overflow:hidden;
+  position:relative;
+}
+.hero::before{
+  content:"";position:absolute;top:-20%;left:50%;width:140%;height:120%;
+  transform:translateX(-50%);pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,94,58,.18),transparent 45%),
+    radial-gradient(circle at 80% 30%,rgba(124,92,255,.18),transparent 45%),
+    radial-gradient(circle at 50% 90%,rgba(34,211,238,.10),transparent 50%);
+  filter:blur(20px);
+}
+.hero-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1.4fr .6fr;gap:clamp(2rem,5vw,4rem);align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--accent-2);
+  padding:.45rem .9rem;border-radius:999px;border:1px solid rgba(255,184,107,.3);
+  background:rgba(255,184,107,.06);margin-bottom:1.4rem;
+}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,94,58,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,94,58,.6)}70%{box-shadow:0 0 0 12px rgba(255,94,58,0)}100%{box-shadow:0 0 0 0 rgba(255,94,58,0)}}
+
+.hero h1{margin:0 0 .8rem}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:block;transform:translateY(110%);animation:rise 1s var(--ease) forwards}
+.hero h1 .line:nth-child(1) span{animation-delay:.15s}
+.hero h1 .line:nth-child(2) span{animation-delay:.3s}
+@keyframes rise{to{transform:translateY(0)}}
+.hero h1 .accent{
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-role{
+  font-size:clamp(1.05rem,2.3vw,1.45rem);font-weight:600;color:var(--text);
+  margin-bottom:1.4rem;min-height:2.2em;
+}
+.hero-role .typed{border-right:2px solid var(--accent);padding-right:3px;color:var(--accent-2)}
+.hero-lead{font-size:1.02rem;max-width:56ch;margin-bottom:1.8rem}
+.hero-lead strong{color:var(--text)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.4rem}
+.chip{
+  display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .95rem;border-radius:999px;
+  border:1px solid var(--line);background:var(--surface);font-size:.82rem;color:var(--text);
+  transition:all .25s;
+}
+.chip:hover{border-color:var(--accent-2);color:var(--accent-2);transform:translateY(-2px)}
+.chip svg{width:15px;height:15px;flex:none;color:var(--accent)}
+.socials{display:flex;gap:.55rem;flex-wrap:wrap}
+.socials a{
+  width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  border:1px solid var(--line);background:var(--surface);color:var(--muted);
+  transition:all .3s var(--ease);
+}
+.socials a:hover{color:var(--accent-2);border-color:var(--accent-2);transform:translateY(-3px) rotate(-4deg)}
+.socials svg{width:20px;height:20px}
+
+/* floating identity orb */
+.orb-wrap{position:relative;display:grid;place-items:center;aspect-ratio:1/1}
+.orb{
+  position:relative;width:100%;max-width:340px;aspect-ratio:1/1;border-radius:50%;
+  background:conic-gradient(from 0deg,#ff5e3a,#ffb86b,#7c5cff,#22d3ee,#ff5e3a);
+  padding:3px;animation:spin 18s linear infinite;
+  box-shadow:0 0 80px rgba(255,94,58,.35),0 0 140px rgba(124,92,255,.2);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orb-inner{
+  width:100%;height:100%;border-radius:50%;background:var(--bg-2);
+  display:grid;place-items:center;position:relative;overflow:hidden;
+  animation:spin 18s linear infinite reverse;
+}
+.orb-inner::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 30%,rgba(255,94,58,.18),transparent 60%);
+}
+.orb-mono{
+  font-size:clamp(3.4rem,9vw,5.6rem);font-weight:900;letter-spacing:-.05em;
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+  position:relative;z-index:1;
+}
+.orb-label{
+  position:absolute;bottom:12%;left:0;right:0;text-align:center;
+  font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);font-weight:800;
+  z-index:1;
+}
+.orb-ring{
+  position:absolute;inset:-12%;border-radius:50%;border:1px dashed rgba(255,255,255,.1);
+  animation:spin 28s linear infinite reverse;pointer-events:none;
+}
+.orb-ring::before,.orb-ring::after{
+  content:"";position:absolute;width:10px;height:10px;border-radius:50%;
+  background:var(--accent);top:50%;left:-5px;
+  box-shadow:0 0 20px var(--accent);
+}
+.orb-ring::after{background:var(--accent-4);right:-5px;left:auto;box-shadow:0 0 20px var(--accent-4)}
+
+/* scroll hint */
+.scroll-hint{
+  position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;z-index:2;
+}
+.scroll-hint .mouse{
+  width:22px;height:36px;border-radius:12px;border:1.5px solid var(--muted);position:relative;
+}
+.scroll-hint .mouse::after{
+  content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);
+  width:3px;height:7px;border-radius:2px;background:var(--accent-2);
+  animation:scrollDot 1.6s infinite;
+}
+@keyframes scrollDot{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============================================================
+   SECTION HEADINGS
+============================================================ */
+.sec-head{max-width:780px;margin-bottom:clamp(2.4rem,5vw,3.8rem)}
+.sec-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:var(--accent);
+  margin-bottom:.9rem;
+}
+.sec-tag::before{content:"";width:28px;height:1px;background:var(--accent)}
+.sec-head h2{margin-bottom:.7rem}
+.sec-head p{font-size:1.05rem}
+
+/* ============================================================
+   STATS / COUNTERS
+============================================================ */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1rem}
+.stat{
+  position:relative;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:1.6rem 1.3rem;overflow:hidden;
+  transition:transform .4s var(--ease),border-color .4s;
+}
+.stat::before{
+  content:"";position:absolute;inset:0;opacity:0;transition:opacity .4s;
+  background:radial-gradient(circle at top right,rgba(255,94,58,.15),transparent 60%);
+}
+.stat:hover{transform:translateY(-6px);border-color:rgba(255,94,58,.4)}
+.stat:hover::before{opacity:1}
+.stat b{
+  display:block;font-size:clamp(2.2rem,5vw,3rem);font-weight:900;line-height:1;
+  background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:.35rem;font-variant-numeric:tabular-nums;
+}
+.stat span{font-size:.8rem;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+
+/* ============================================================
+   ABOUT — SPLIT WITH STICKY SIDE
+============================================================ */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.about-text p{font-size:1.02rem}
+.about-text p strong{color:var(--text)}
+.pill-list{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.pill-list li{
+  padding:.45rem .95rem;border-radius:999px;background:rgba(255,94,58,.08);
+  color:var(--accent-2);font-size:.8rem;font-weight:700;border:1px solid rgba(255,94,58,.18);
+}
+.about-side{display:grid;gap:1rem;position:sticky;top:100px}
+.info-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;
+  transition:border-color .3s,transform .3s;
+}
+.info-card:hover{border-color:rgba(255,184,107,.4);transform:translateY(-3px)}
+.info-card h3{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);margin-bottom:1rem}
+.info-card dl{margin:0;display:grid;gap:.8rem}
+.info-card dt{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800}
+.info-card dd{margin:0;font-size:.92rem;font-weight:600;word-break:break-word}
+
+/* ============================================================
+   EXPERIENCE — GLOWING TIMELINE
+============================================================ */
+.timeline{position:relative;display:grid;gap:1.6rem}
+.timeline::before{
+  content:"";position:absolute;left:17px;top:10px;bottom:10px;width:2px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-3),transparent);
+  opacity:.5;
+}
+.job{
+  position:relative;margin-left:52px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:1.6rem 1.6rem 1.4rem;
+  transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;
+}
+.job:hover{transform:translateX(6px);border-color:rgba(255,94,58,.4);box-shadow:0 20px 50px rgba(255,94,58,.08)}
+.job::before{
+  content:"";position:absolute;left:-44px;top:1.9rem;width:16px;height:16px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 5px var(--bg),0 0 0 7px rgba(255,94,58,.25),0 0 24px var(--accent);
+  transition:transform .3s;
+}
+.job:hover::before{transform:scale(1.2)}
+.job-top{display:flex;flex-wrap:wrap;gap:.5rem .9rem;align-items:baseline;justify-content:space-between;margin-bottom:.35rem}
+.job h3{margin:0;font-size:1.15rem}
+.job .org{color:var(--accent-2);font-weight:700;font-size:.95rem;margin-top:.15rem}
+.job .meta{font-size:.8rem;color:var(--muted);font-weight:600;display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.4rem}
+.badge{
+  display:inline-block;padding:.2rem .65rem;border-radius:999px;font-size:.68rem;
+  font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(255,94,58,.12);color:var(--accent);border:1px solid rgba(255,94,58,.25);
+}
+.job-body{margin-top:1rem}
+.job-body[hidden]{display:none}
+.job-body ul{display:grid;gap:.5rem;color:var(--muted);font-size:.92rem}
+.toggle-job{
+  margin-top:1rem;background:none;border:none;padding:0;color:var(--accent-2);
+  font:inherit;font-weight:800;font-size:.82rem;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;
+  letter-spacing:.05em;text-transform:uppercase;
+}
+.toggle-job .chev{transition:transform .3s}
+.toggle-job[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.tag-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.tag{
+  font-size:.72rem;font-weight:700;padding:.3rem .7rem;border-radius:8px;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--muted);
+  transition:color .2s,border-color .2s;
+}
+.tag:hover{color:var(--accent-2);border-color:rgba(255,184,107,.4)}
+
+/* ============================================================
+   EDUCATION / CERTS / SKILLS — CARD GRIDS
+============================================================ */
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem}
+.card{
+  position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.6rem;transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--grad-hero);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,94,58,.35);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.card:hover::before{transform:scaleX(1)}
+.card h3{font-size:1.05rem;margin-bottom:.4rem}
+.card .inst{font-size:.88rem;color:var(--accent-2);font-weight:700;margin-bottom:.35rem}
+.card .when{font-size:.78rem;color:var(--muted);font-weight:700;letter-spacing:.03em}
+.card p{font-size:.88rem;margin:.7rem 0 0}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.5rem}
+.filter-btn{
+  padding:.55rem 1.05rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);
+  color:var(--muted);font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .3s;
+}
+.filter-btn:hover{border-color:var(--accent-2);color:var(--accent-2)}
+.filter-btn[aria-pressed="true"]{background:var(--grad-hero);color:#07080d;border-color:transparent;box-shadow:0 8px 20px rgba(255,94,58,.3)}
+.search-wrap{position:relative;margin-bottom:1.3rem;max-width:440px}
+.search-wrap svg{position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--muted)}
+.search-wrap input{
+  width:100%;padding:.85rem 1rem .85rem 2.7rem;border-radius:12px;border:1px solid var(--line);
+  background:var(--surface);color:var(--text);font:inherit;font-size:.92rem;
+}
+.search-wrap input:focus{outline:2px solid var(--accent-2);outline-offset:2px;border-color:var(--accent-2)}
+.empty-msg{padding:1.6rem;text-align:center;color:var(--muted);font-size:.9rem;border:1px dashed var(--line);border-radius:var(--radius)}
+
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.2rem}
+.skill-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;
+  transition:border-color .3s,transform .3s;
+}
+.skill-card:hover{border-color:rgba(124,92,255,.4);transform:translateY(-4px)}
+.skill-card h3{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-3);margin-bottom:1rem}
+.skill-card ul{list-style:none;padding:0;display:grid;gap:.5rem}
+.skill-card li{font-size:.9rem;color:var(--muted);display:flex;gap:.55rem;align-items:flex-start}
+.skill-card li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-2);flex:none;margin-top:.6em}
+.tool-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
+.tool-tags .tag{font-size:.82rem;padding:.45rem .85rem}
+
+/* ============================================================
+   PROJECTS
+============================================================ */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.4rem}
+.project{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),border-color .4s;
+}
+.project:hover{transform:translateY(-6px);border-color:rgba(255,94,58,.4)}
+.project-visual{
+  aspect-ratio:16/9;display:grid;place-items:center;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#1a1020,#0c0f18);
+}
+.project-visual::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(255,94,58,.35),transparent 50%),
+    radial-gradient(circle at 80% 70%,rgba(124,92,255,.35),transparent 50%);
+}
+.project-visual::after{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 16px,rgba(255,255,255,.03) 16px,rgba(255,255,255,.03) 32px);
+}
+.project-visual span{
+  position:relative;font-family:var(--mono);font-weight:800;font-size:clamp(1.1rem,3vw,1.6rem);
+  color:#fff;letter-spacing:.02em;z-index:1;text-align:center;padding:0 1.2rem;
+  text-shadow:0 4px 30px rgba(0,0,0,.6);
+}
+.project-body{padding:1.5rem;display:flex;flex-direction:column;gap:.65rem;flex:1}
+.project-body h3{margin:0;font-size:1.1rem}
+.project-body p{font-size:.9rem;margin:0}
+.project-status{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2)}
+.project-body .tag-row{margin-top:auto;padding-top:.8rem}
+
+/* ============================================================
+   LANGUAGES
+============================================================ */
+.lang-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.lang-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.3rem 1.4rem;display:flex;justify-content:space-between;align-items:center;gap:.9rem;
+  transition:border-color .3s,transform .3s;
+}
+.lang-card:hover{border-color:rgba(34,211,238,.4);transform:translateY(-3px)}
+.lang-card b{font-size:1.02rem}
+.lang-card span{font-size:.76rem;color:var(--muted);font-weight:700;text-align:right}
+[dir="rtl"]{text-align:right}
+
+/* ============================================================
+   STRENGTHS
+============================================================ */
+.strength-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+.strength{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;
+  display:flex;gap:.95rem;align-items:flex-start;transition:border-color .3s,transform .3s;
+}
+.strength:hover{border-color:rgba(255,184,107,.4);transform:translateY(-3px)}
+.strength svg{width:22px;height:22px;color:var(--accent);flex:none;margin-top:.15rem}
+.strength b{display:block;font-size:.98rem;margin-bottom:.25rem;color:var(--text)}
+.strength p{font-size:.85rem;margin:0}
+
+/* ============================================================
+   CONTACT
+============================================================ */
+.contact-wrap{
+  position:relative;overflow:hidden;
+  background:linear-gradient(150deg,#15111f,#0c0f18);
+  border:1px solid var(--line);border-radius:28px;padding:clamp(2rem,5vw,3.5rem);
+  box-shadow:var(--shadow);
+}
+.contact-wrap::before{
+  content:"";position:absolute;top:-50%;right:-10%;width:60%;height:200%;
+  background:radial-gradient(circle,rgba(255,94,58,.2),transparent 60%);pointer-events:none;
+}
+.contact-wrap::after{
+  content:"";position:absolute;bottom:-50%;left:-10%;width:50%;height:200%;
+  background:radial-gradient(circle,rgba(124,92,255,.18),transparent 60%);pointer-events:none;
+}
+.contact-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,3.5rem);align-items:start}
+.contact-list{list-style:none;padding:0;display:grid;gap:.85rem;margin-top:1.5rem}
+.contact-item{
+  display:flex;align-items:center;gap:.95rem;padding:.95rem 1.1rem;border-radius:14px;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);color:var(--text);
+  transition:border-color .3s,background .3s,transform .3s;
+}
+.contact-item:hover{border-color:var(--accent-2);background:rgba(255,184,107,.05);transform:translateX(4px)}
+.contact-item > svg{width:20px;height:20px;color:var(--accent-2);flex:none}
+.ci-label{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800}
+.ci-value{font-size:.92rem;font-weight:600;word-break:break-word}
+.copy-btn{
+  margin-left:auto;background:none;border:1px solid var(--line);border-radius:9px;
+  width:36px;height:36px;display:grid;place-items:center;cursor:pointer;color:var(--muted);
+  flex:none;transition:all .25s;
+}
+.copy-btn:hover{border-color:var(--accent-2);color:var(--accent-2);transform:scale(1.08)}
+.copy-btn svg{width:15px;height:15px}
+.copy-feedback{margin-top:1rem;font-size:.85rem;font-weight:700;color:var(--accent-2);min-height:1.4em}
+.contact-cta h3{font-size:1.4rem;margin-bottom:.7rem}
+.contact-cta p{font-size:.95rem}
+.contact-cta .btn{margin-top:.6rem}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer{border-top:1px solid var(--line);padding:3rem 0 1.8rem;background:var(--bg-2)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.2rem;margin-bottom:2.2rem}
+.footer-grid h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent-2);margin-bottom:1rem}
+.footer-grid ul{list-style:none;padding:0;display:grid;gap:.5rem}
+.footer-grid a{color:var(--muted);font-size:.9rem;transition:color .2s}
+.footer-grid a:hover{color:var(--accent-2)}
+.footer-bottom{
+  border-top:1px solid var(--line);padding-top:1.4rem;display:flex;flex-wrap:wrap;gap:1rem;
+  justify-content:space-between;align-items:center;font-size:.84rem;color:var(--muted);
+}
+.back-top{
+  display:inline-flex;align-items:center;gap:.45rem;background:var(--surface);border:1px solid var(--line);
+  color:var(--text);padding:.6rem 1rem;border-radius:11px;font:inherit;font-size:.84rem;
+  font-weight:700;cursor:pointer;transition:all .3s;
+}
+.back-top:hover{border-color:var(--accent-2);color:var(--accent-2);transform:translateY(-2px)}
+
+/* ============================================================
+   REVEAL ANIMATIONS
+============================================================ */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal-scale.in{opacity:1;transform:none}
+.no-js .reveal,.no-js .reveal-scale{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal,.reveal-scale{opacity:1;transform:none;transition:none}}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;text-align:left}
+  .orb-wrap{max-width:300px;margin:2rem auto 0;order:-1}
+  .about-grid{grid-template-columns:1fr}
+  .about-side{position:static}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .menu-btn{display:grid}
+  .nav-cta{display:none}
+  .nav-links{
+    position:fixed;top:72px;left:1rem;right:1rem;flex-direction:column;gap:.25rem;margin:0;padding:1.2rem;
+    background:rgba(12,15,24,.97);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-12px);
+    transition:opacity .3s,transform .3s,visibility .3s;z-index:99;
+  }
+  .nav-links.open{opacity:1;visibility:visible;transform:translateY(0)}
+  .nav-links a{padding:.8rem .9rem;font-size:.95rem}
+}
+@media (max-width:560px){
+  .footer-grid{grid-template-columns:1fr}
+  .job{margin-left:40px;padding:1.3rem}
+  .timeline::before{left:13px}
+  .job::before{left:-34px;width:13px;height:13px}
+  .contact-wrap{border-radius:20px}
+  .hero{padding-top:100px}
+}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="Mohammad Khalid Momand — home">
+      <span class="mark" aria-hidden="true">MK</span>
+      <span>Mohammad Khalid Momand<small>Operations · Finance · Code</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#languages">Languages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary nav-cta" href="#contact">Hire Me</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section id="home" class="hero" aria-labelledby="heroTitle">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>Kabul, Afghanistan · Open to opportunities</span>
+        <h1 id="heroTitle">
+          <span class="line"><span>Mohammad Khalid</span></span>
+          <span class="line"><span class="accent">Momand</span></span>
+        </h1>
+        <p class="hero-role" aria-live="off"><span class="typed" id="typedRole">Operations &amp; Business Manager</span></p>
+        <p class="hero-lead">
+          <strong>11 years</strong> across operations, accounting, procurement, and software development.
+          I turn messy business processes into clean, measurable systems — and I write the code to
+          automate them.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contact">
+            Let's Talk
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#experience">View Experience</a>
+        </div>
+        <div class="chips">
+          <a class="chip" href="https://wa.me/93764383743" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c2.1.8 2.1.6 2.5.5a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+            +93 764 383 743
+          </a>
+          <a class="chip" href="https://wa.me/93730096160" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c2.1.8 2.1.6 2.5.5a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+            +93 730 096 160
+          </a>
+          <a class="chip" href="mailto:mkm.khalidmomand@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            Email me
+          </a>
+        </div>
+        <div class="socials" aria-label="Professional profiles">
+          <a href="https://www.linkedin.com/in/mohammad-khalid-momand-b712173b0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>
+          </a>
+          <a href="https://mkm-resume.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="Portfolio website (opens in new tab)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+          </a>
+          <a href="mailto:binyadoffice@gmail.com" aria-label="Email binyadoffice@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="orb-wrap" aria-hidden="true">
+        <div class="orb">
+          <div class="orb-inner">
+            <div class="orb-mono">MKM</div>
+            <div class="orb-label">11 Years · Building</div>
+          </div>
+        </div>
+        <div class="orb-ring"></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="mouse"></div>
+      Scroll to explore
+    </div>
+  </section>
+
+  <!-- ================= STATS ================= -->
+  <section aria-labelledby="statsTitle" style="padding-top:0">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">By the Numbers</span>
+        <h2 id="statsTitle">A career measured in results</h2>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b data-count="11" data-suffix="+">0</b><span>Years of experience</span></div>
+        <div class="stat"><b data-count="6">0</b><span>Documented roles</span></div>
+        <div class="stat"><b data-count="7">0</b><span>Languages</span></div>
+        <div class="stat"><b data-count="3">0</b><span>Qualifications</span></div>
+        <div class="stat"><b data-count="15" data-suffix="+">0</b><span>Certifications</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" aria-labelledby="aboutTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">About</span>
+        <h2 id="aboutTitle">The short version</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I've spent <strong>11 years</strong> moving between the ledger, the factory floor, and the
+            code editor. I started in hospitality accounting, grew into operations leadership in
+            manufacturing and distribution, and later added certified software development in Python and
+            Django. That combination is unusual — and it's exactly why I'm useful.
+          </p>
+          <p>
+            In practice, I've managed procurement departments, planned production schedules, supervised
+            technical staff, prepared VAT returns, and led general operations for a herbal pharma
+            manufacturer. Alongside that, I build tools: I'm currently developing
+            <strong>Binyad Office</strong>, an office management platform to replace manual paperwork
+            in small businesses.
+          </p>
+          <p>
+            I work across cultures and languages — English, Arabic, Urdu, Hindi, Persian, Pashto, and
+            Dari — and I'm comfortable being the person who connects finance, operations, and technology
+            into one coherent picture.
+          </p>
+          <ul class="pill-list" aria-label="Areas of expertise">
+            <li>Operations Management</li>
+            <li>Accounting &amp; VAT</li>
+            <li>Procurement</li>
+            <li>Production Planning</li>
+            <li>Team Leadership</li>
+            <li>Python / Django</li>
+            <li>Business Development</li>
+            <li>POS &amp; ERP Systems</li>
+          </ul>
+        </div>
+        <aside class="about-side reveal">
+          <div class="info-card">
+            <h3>Quick Facts</h3>
+            <dl>
+              <dt>Location</dt>
+              <dd>Kabul, Afghanistan</dd>
+              <dt>Experience</dt>
+              <dd>11 years</dd>
+              <dt>Focus</dt>
+              <dd>Operations &amp; software development</dd>
+              <dt>Languages</dt>
+              <dd>English, Arabic, Urdu, Hindi, Persian, Pashto, Dari</dd>
+            </dl>
+          </div>
+          <div class="info-card">
+            <h3>Open To</h3>
+            <dl>
+              <dt>Roles</dt>
+              <dd>Accountant · Administrator · Operations Specialist · Personal Assistant · Junior Developer</dd>
+              <dt>Work style</dt>
+              <dd>On-site · Hybrid · Remote</dd>
+            </dl>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience" aria-labelledby="expTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Experience</span>
+        <h2 id="expTitle">Where I've worked</h2>
+        <p>Newest to oldest. Expand any role to see the full responsibilities.</p>
+      </div>
+
+      <div class="timeline">
+
+        <article class="job reveal">
+          <div class="job-top">
+            <div>
+              <h3>General Manager</h3>
+              <div class="org">Hewad Afghan Herbal Pharma</div>
+            </div>
+            <span class="badge">Most recent</span>
+          </div>
+          <div class="meta">
+            <span>Kabul, Afghanistan</span>
+            <span>01 Jan 2026 – 01 Aug 2026</span>
+          </div>
+          <div class="job-body" id="job1" hidden>
+            <ul>
+              <li>Led general management of the herbal medicine production facility, overseeing daily operations and production.</li>
+              <li>Planned and scheduled production, monitored quality, and drove continuous improvement initiatives.</li>
+              <li>Managed administrative, financial, and sales teams, aligning departmental goals with company strategy.</li>
+              <li>Developed sales growth and cultivated relationships with suppliers and distribution partners.</li>
+              <li>Oversaw procurement of raw materials and managed supplier relationships.</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">General Management</span>
+            <span class="tag">Production</span>
+            <span class="tag">Quality Control</span>
+            <span class="tag">Procurement</span>
+            <span class="tag">Sales</span>
+          </div>
+          <button class="toggle-job" type="button" aria-expanded="false" aria-controls="job1">
+            Show responsibilities
+            <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-top">
+            <div>
+              <h3>General Manager</h3>
+              <div class="org">Private Company — UAE (Dubai &amp; Northern Emirates)</div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>United Arab Emirates</span>
+            <span>2015 – 2026 (11 years)</span>
+          </div>
+          <div class="job-body" id="job2" hidden>
+            <ul>
+              <li>Directed general operations, business development, and customer growth across the company.</li>
+              <li>Developed strategic plans that increased sales and improved profitability.</li>
+              <li>Managed human resources, finance, and daily operational functions.</li>
+              <li>Built and maintained commercial relationships with clients and international trading partners.</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Business Development</span>
+            <span class="tag">Strategy</span>
+            <span class="tag">HR &amp; Finance</span>
+            <span class="tag">Client Relations</span>
+          </div>
+          <button class="toggle-job" type="button" aria-expanded="false" aria-controls="job2">
+            Show responsibilities
+            <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-top">
+            <div>
+              <h3>Branch Manager</h3>
+              <div class="org">Rukon Al Baraka — Bukhari &amp; Mandi Restaurant</div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Dubai, UAE</span>
+            <span>2021 – Aug 2022</span>
+          </div>
+          <div class="job-body" id="job3" hidden>
+            <ul>
+              <li>Oversaw daily restaurant operations and delivered excellent customer service standards.</li>
+              <li>Managed staff scheduling, recruitment support, and team performance.</li>
+              <li>Ensured compliance with health, safety, and food-safety regulations.</li>
+              <li>Controlled costs, optimized inventory, and promoted the restaurant's brand.</li>
+              <li>Worked to maximize customer satisfaction and ensure smooth daily running.</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Operations</span>
+            <span class="tag">Customer Service</span>
+            <span class="tag">Staff Management</span>
+            <span class="tag">Cost Control</span>
+          </div>
+          <button class="toggle-job" type="button" aria-expanded="false" aria-controls="job3">
+            Show responsibilities
+            <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-top">
+            <div>
+              <h3>Python Developer</h3>
+              <div class="org">Blue Bridge</div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Dubai, UAE</span>
+            <span>Nov 2021 – Dec 2021</span>
+          </div>
+          <div class="job-body" id="job4" hidden>
+            <ul>
+              <li>Wrote and maintained reusable Python code for production applications.</li>
+              <li>Improved application performance and optimized existing modules.</li>
+              <li>Developed and integrated APIs connecting multiple services.</li>
+              <li>Integrated third-party elements into problem-solving applications.</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">API Integration</span>
+            <span class="tag">Performance</span>
+          </div>
+          <button class="toggle-job" type="button" aria-expanded="false" aria-controls="job4">
+            Show responsibilities
+            <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-top">
+            <div>
+              <h3>Procurement Officer cum Production Manager</h3>
+              <div class="org">Diamond Pack Packing &amp; Filling Factory</div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Umm Al Quwain, UAE</span>
+            <span>Aug 2020 – Oct 2021</span>
+          </div>
+          <div class="job-body" id="job5" hidden>
+            <ul>
+              <li>Managed the purchasing department: evaluating and negotiating with suppliers, maintaining records, and following company policy.</li>
+              <li>Prepared budgets, reports, and plans for purchasing equipment, services, and supplies.</li>
+              <li>Planned and organized production schedules; assessed project and resource requirements.</li>
+              <li>Ensured compliance with health and safety regulations across production.</li>
+              <li>Oversaw production processes, purchased materials, organized equipment maintenance, and supervised junior staff.</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Procurement</span>
+            <span class="tag">Production Planning</span>
+            <span class="tag">Budgets</span>
+            <span class="tag">HSE Compliance</span>
+          </div>
+          <button class="toggle-job" type="button" aria-expanded="false" aria-controls="job5">
+            Show responsibilities
+            <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-top">
+            <div>
+              <h3>Operations Manager</h3>
+              <div class="org">Diamond Pack Packing &amp; Filling Factory</div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Umm Al Quwain, UAE</span>
+            <span>Feb 2019 – Jul 2020</span>
+          </div>
+          <div class="job-body" id="job6" hidden>
+            <ul>
+              <li>Designed and implemented plans to use resources efficiently across manufacturing operations.</li>
+              <li>Supervised manufacturing personnel; hired and trained technical production employees.</li>
+              <li>Ensured compliance with health and safety standards.</li>
+              <li>Provided solutions to manufacturing challenges and liaised with the quality assurance department.</li>
+              <li>Identified efficiency limitations, adjusted operations during problems, and procured raw materials and equipment.</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Operations</span>
+            <span class="tag">Hiring &amp; Training</span>
+            <span class="tag">Quality Assurance</span>
+            <span class="tag">Raw Materials</span>
+          </div>
+          <button class="toggle-job" type="button" aria-expanded="false" aria-controls="job6">
+            Show responsibilities
+            <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-top">
+            <div>
+              <h3>General Accountant</h3>
+              <div class="org">Bukhari Al Khaleej Group of Restaurants</div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>United Arab Emirates</span>
+            <span>Oct 2016 – Jan 2019</span>
+          </div>
+          <div class="job-body" id="job7" hidden>
+            <ul>
+              <li>Managed all accounting transactions and prepared budget forecasts.</li>
+              <li>Published financial statements and handled monthly, quarterly, and annual closings.</li>
+              <li>Reconciled accounts payable and receivable; ensured timely bank payments.</li>
+              <li>Computed VAT and prepared VAT returns.</li>
+              <li>Managed balance sheets and profit/loss statements; reported on financial health and liquidity.</li>
+              <li>Audited financial transactions and documents; maintained confidentiality and conducted database backups.</li>
+              <li>Processed employee salaries through WPS channels.</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Accounting</span>
+            <span class="tag">VAT Returns</span>
+            <span class="tag">Payroll / WPS</span>
+            <span class="tag">Financial Reporting</span>
+          </div>
+          <button class="toggle-job" type="button" aria-expanded="false" aria-controls="job7">
+            Show responsibilities
+            <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section id="education" aria-labelledby="eduTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Education</span>
+        <h2 id="eduTitle">Academic qualifications</h2>
+      </div>
+      <div class="grid-cards reveal">
+        <article class="card">
+          <h3>High School Diploma (Grade 12)</h3>
+          <div class="inst">Pohand. Abdul Hai Habibi High School</div>
+          <div class="when">Afghanistan · Graduated 2012 · Grade A (96.5/100)</div>
+          <p>Awarded by the Islamic Republic of Afghanistan Ministry of Education.</p>
+        </article>
+        <article class="card">
+          <h3>IT Support</h3>
+          <div class="inst">Ministry of IT</div>
+          <div class="when">Afghanistan · Grade A (100/100)</div>
+          <p>Foundational training in IT support, systems, and user assistance.</p>
+        </article>
+        <article class="card">
+          <h3>English Language Program</h3>
+          <div class="inst">IRC Program — KKELC</div>
+          <div class="when">Afghanistan · Graduated with Grade A</div>
+          <p>Intensive English certification through the International Rescue Committee program.</p>
+        </article>
+        <article class="card">
+          <h3>Diploma in Computer Science</h3>
+          <div class="inst">Kabul Institute of Technology</div>
+          <div class="when">2009 – 2010</div>
+          <p>Technical diploma covering computer science fundamentals.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CERTIFICATIONS ================= -->
+  <section id="certifications" aria-labelledby="certTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Certifications</span>
+        <h2 id="certTitle">Continuous learning</h2>
+        <p>Search or filter to find a specific course.</p>
+      </div>
+      <div class="search-wrap reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="certSearch" placeholder="Search certifications…" aria-label="Search certifications">
+      </div>
+      <div class="filters reveal" role="group" aria-label="Filter certifications by category">
+        <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" type="button" data-filter="Programming" aria-pressed="false">Programming</button>
+        <button class="filter-btn" type="button" data-filter="Leadership" aria-pressed="false">Leadership</button>
+        <button class="filter-btn" type="button" data-filter="Business" aria-pressed="false">Business</button>
+        <button class="filter-btn" type="button" data-filter="Compliance" aria-pressed="false">Compliance</button>
+      </div>
+      <div class="grid-cards" id="certGrid">
+        <article class="card" data-cat="Programming"><h3>Crash Course on Python</h3><div class="inst">Google · Coursera</div><div class="when">16 Aug 2021</div></article>
+        <article class="card" data-cat="Programming"><h3>Using Python to Interact with the OS</h3><div class="inst">Google · Coursera</div><div class="when">2021</div></article>
+        <article class="card" data-cat="Programming"><h3>Introduction to Git and GitHub</h3><div class="inst">Google · Coursera</div><div class="when">13 Oct 2021</div></article>
+        <article class="card" data-cat="Programming"><h3>Django Essential Training</h3><div class="inst">LinkedIn Learning</div><div class="when">20 Sep 2022</div></article>
+        <article class="card" data-cat="Programming"><h3>Building a Personal Portfolio with Django</h3><div class="inst">LinkedIn Learning</div><div class="when">21 Sep 2022</div></article>
+        <article class="card" data-cat="Programming"><h3>Advanced Django</h3><div class="inst">LinkedIn Learning</div><div class="when">28 Sep 2022</div></article>
+        <article class="card" data-cat="Programming"><h3>The Ultimate Django Series: Part 1</h3><div class="inst">Code with Mosh</div><div class="when">14 Nov 2021</div></article>
+        <article class="card" data-cat="Programming"><h3>The Ultimate Django Series: Part 2</h3><div class="inst">Code with Mosh</div><div class="when">2021</div></article>
+        <article class="card" data-cat="Leadership"><h3>Leadership Mindsets</h3><div class="inst">LinkedIn Learning</div><div class="when">Date not stated</div></article>
+        <article class="card" data-cat="Business"><h3>Get a Business Online</h3><div class="inst">Google</div><div class="when">Date not stated</div></article>
+        <article class="card" data-cat="Business"><h3>Fundamentals of Digital Marketing</h3><div class="inst">Google</div><div class="when">Date not stated</div></article>
+        <article class="card" data-cat="Compliance"><h3>HACCP Awareness Training</h3><div class="inst">5 GMP Quality Consultants · Highfield &amp; Trakhees</div><div class="when">Training 15 Mar 2020 · Issued 17 Mar 2020</div></article>
+        <article class="card" data-cat="Compliance"><h3>Sharjah Food Safety Program — GHP Manager Course</h3><div class="inst">Sharjah Food Safety Program</div><div class="when">Valid 31 Oct 2017 – 30 Oct 2020</div></article>
+        <article class="card" data-cat="Compliance"><h3>IT Support</h3><div class="inst">Afghanistan Ministry of IT</div><div class="when">Grade A (100/100)</div></article>
+      </div>
+      <p class="empty-msg" id="certEmpty" hidden>No certifications match your search.</p>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills" aria-labelledby="skillsTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Skills</span>
+        <h2 id="skillsTitle">What I bring to the table</h2>
+      </div>
+      <div class="skills-grid reveal">
+        <div class="skill-card"><h3>Leadership &amp; Management</h3><ul><li>Team leadership &amp; supervision</li><li>Staff hiring &amp; training</li><li>Strategic planning</li><li>Decision-making under pressure</li><li>Cross-functional coordination</li></ul></div>
+        <div class="skill-card"><h3>Accounting &amp; Finance</h3><ul><li>General accounting &amp; bookkeeping</li><li>VAT computation &amp; returns</li><li>Budget forecasting</li><li>Financial statements &amp; P&amp;L</li><li>Payroll processing (WPS)</li><li>Tally ERP 9 (Advanced) &amp; TDL</li></ul></div>
+        <div class="skill-card"><h3>Operations &amp; Distribution</h3><ul><li>Production planning &amp; scheduling</li><li>Procurement &amp; supplier negotiation</li><li>Inventory &amp; materials management</li><li>Health, safety &amp; compliance</li><li>Quality assurance liaison</li><li>POS machines (expert)</li></ul></div>
+        <div class="skill-card"><h3>Software Development</h3><ul><li>Python</li><li>Django (full-stack web)</li><li>PyQt5 GUI development</li><li>HTML / CSS</li><li>React.js (working knowledge)</li><li>Git &amp; GitHub</li></ul></div>
+        <div class="skill-card"><h3>IT &amp; Digital Tools</h3><ul><li>Microsoft Office suite</li><li>Linux &amp; Kali operating systems</li><li>IT support &amp; troubleshooting</li><li>Domain &amp; web hosting</li><li>Website development</li><li>Digital media marketing</li></ul></div>
+        <div class="skill-card"><h3>Creative &amp; Media</h3><ul><li>Adobe Photoshop</li><li>Adobe After Effects</li><li>Adobe Premiere Pro</li><li>Adobe Audition</li></ul></div>
+      </div>
+      <div class="tool-tags reveal" aria-label="Technical tools">
+        <span class="tag">Python</span><span class="tag">Django</span><span class="tag">PyQt5</span>
+        <span class="tag">React.js</span><span class="tag">HTML / CSS</span><span class="tag">Git &amp; GitHub</span>
+        <span class="tag">Tally ERP 9</span><span class="tag">TDL</span><span class="tag">Microsoft Office</span>
+        <span class="tag">Linux</span><span class="tag">Kali Linux</span><span class="tag">POS Systems</span>
+        <span class="tag">Adobe Creative Suite</span><span class="tag">Web Hosting</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" aria-labelledby="projTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Projects</span>
+        <h2 id="projTitle">Things I'm building</h2>
+        <p>Selected work from my professional and independent practice.</p>
+      </div>
+      <div class="projects-grid reveal">
+        <article class="project">
+          <div class="project-visual" aria-hidden="true"><span>&lt;Binyad Office /&gt;</span></div>
+          <div class="project-body">
+            <span class="project-status">In development</span>
+            <h3>Binyad Office</h3>
+            <p>A management platform designed to streamline day-to-day office workflows — administration, records, and operational tasks — for small businesses and professional offices.</p>
+            <div class="tag-row"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Web App</span></div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-visual" aria-hidden="true"><span>&lt;This Portfolio /&gt;</span></div>
+          <div class="project-body">
+            <span class="project-status">Live</span>
+            <h3>Personal Portfolio Website</h3>
+            <p>A single-file, self-contained portfolio built with semantic HTML, modern CSS, and vanilla JavaScript — cinematic scroll animations, accessible navigation, and zero external runtime dependencies.</p>
+            <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LANGUAGES ================= -->
+  <section id="languages" aria-labelledby="langTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Languages</span>
+        <h2 id="langTitle">Languages I speak</h2>
+      </div>
+      <div class="lang-grid reveal">
+        <div class="lang-card"><b>English</b><span>Professional</span></div>
+        <div class="lang-card"><b>Arabic</b><span>Professional</span></div>
+        <div class="lang-card"><b>Urdu</b><span>Fluent</span></div>
+        <div class="lang-card"><b>Hindi</b><span>Fluent</span></div>
+        <div class="lang-card"><b dir="rtl" lang="fa">فارسی</b><span>Persian / Farsi</span></div>
+        <div class="lang-card"><b dir="rtl" lang="ps">پښتو</b><span>Pashto</span></div>
+        <div class="lang-card"><b dir="rtl" lang="prs">دری</b><span>Dari</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STRENGTHS ================= -->
+  <section aria-labelledby="strengthTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Strengths</span>
+        <h2 id="strengthTitle">How I work</h2>
+      </div>
+      <div class="strength-grid reveal">
+        <div class="strength"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><div><b>Leadership</b><p>Leading cross-functional teams in fast-moving operational environments.</p></div></div>
+        <div class="strength"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><b>Discipline</b><p>Consistent delivery against deadlines, budgets, and compliance requirements.</p></div></div>
+        <div class="strength"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg><div><b>Problem Solving</b><p>Analytical approach to diagnosing and resolving operational and financial issues.</p></div></div>
+        <div class="strength"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><div><b>Team Player</b><p>Comfortable collaborating across departments, cultures, and languages.</p></div></div>
+        <div class="strength"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div><b>Risk Management</b><p>Proactive identification and mitigation of operational and financial risk.</p></div></div>
+        <div class="strength"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><div><b>Continuous Learning</b><p>Ongoing certified training in software development, leadership, and business.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" aria-labelledby="contactTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Contact</span>
+        <h2 id="contactTitle">Let's work together</h2>
+        <p>Open to accounting, administration, operations, and junior development roles. Reach out directly.</p>
+      </div>
+      <div class="contact-wrap reveal">
+        <div class="contact-grid">
+          <div>
+            <h3>Direct contact</h3>
+            <ul class="contact-list">
+              <li>
+                <a class="contact-item" href="https://wa.me/93764383743" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c2.1.8 2.1.6 2.5.5a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+                  <span><span class="ci-label">WhatsApp (primary)</span><span class="ci-value">+93 764 383 743</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-item" href="https://wa.me/93730096160" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c2.1.8 2.1.6 2.5.5a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>
+                  <span><span class="ci-label">WhatsApp (alternate)</span><span class="ci-value">+93 730 096 160</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-item" href="mailto:mkm.khalidmomand@gmail.com">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+                  <span><span class="ci-label">Email (primary)</span><span class="ci-value">mkm.khalidmomand@gmail.com</span></span>
+                  <button class="copy-btn" type="button" data-copy="mkm.khalidmomand@gmail.com" aria-label="Copy primary email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </a>
+              </li>
+              <li>
+                <a class="contact-item" href="mailto:binyadoffice@gmail.com">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+                  <span><span class="ci-label">Email (alternate)</span><span class="ci-value">binyadoffice@gmail.com</span></span>
+                  <button class="copy-btn" type="button" data-copy="binyadoffice@gmail.com" aria-label="Copy alternate email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </a>
+              </li>
+              <li>
+                <span class="contact-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span><span class="ci-label">Location</span><span class="ci-value">Kabul, Afghanistan</span></span>
+                </span>
+              </li>
+            </ul>
+            <p class="copy-feedback" id="copyFeedback" role="status" aria-live="polite"></p>
+          </div>
+          <div class="contact-cta">
+            <h3>Prefer email?</h3>
+            <p>I'll reply within one business day. Use the button below to open a pre-filled draft.</p>
+            <a class="btn btn-primary" href="mailto:mkm.khalidmomand@gmail.com?subject=Opportunity%20for%20Mohammad%20Khalid%20Momand&body=Hello%20Mohammad%20Khalid%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20about%20an%20opportunity.%0A%0ABest%20regards%2C">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+              Draft an Email
+            </a>
+            <div class="socials" aria-label="Professional profiles" style="margin-top:1.5rem">
+              <a href="https://www.linkedin.com/in/mohammad-khalid-momand-b712173b0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>
+              </a>
+              <a href="https://mkm-resume.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="Portfolio website (opens in new tab)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Mohammad Khalid Momand</h4>
+        <p style="font-size:.9rem">Operations · Finance · Code. 11 years of building practical systems for real businesses.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/mohammad-khalid-momand-b712173b0/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://mkm-resume.onrender.com" target="_blank" rel="noopener noreferrer">Portfolio website</a></li>
+          <li><a href="mailto:mkm.khalidmomand@gmail.com">mkm.khalidmomand@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Mohammad Khalid Momand. All rights reserved.</span>
+      <button class="back-top" type="button" id="backTop">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+        Back to top
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mohammad Khalid Momand",
+  "jobTitle": "Operations Manager, Accountant, Python/Django Developer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Kabul", "addressCountry": "AF" },
+  "email": "mailto:mkm.khalidmomand@gmail.com",
+  "url": "https://mkm-resume.onrender.com",
+  "sameAs": ["https://www.linkedin.com/in/mohammad-khalid-momand-b712173b0/"],
+  "knowsLanguage": ["English","Arabic","Urdu","Hindi","Persian","Pashto","Dari"]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Year ---------- */
+  var y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* ---------- Scroll progress + header state ---------- */
+  var progress = document.getElementById("scrollProgress");
+  var header = document.getElementById("siteHeader");
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    if (progress) progress.style.width = pct + "%";
+    if (header) header.classList.toggle("scrolled", h.scrollTop > 20);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Custom cursor ---------- */
+  var dot = document.getElementById("cursorDot");
+  var ring = document.getElementById("cursorRing");
+  if (dot && ring && window.matchMedia("(hover:hover) and (min-width:901px)").matches){
+    var mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener("mousemove", function(e){
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = "translate(" + mx + "px," + my + "px) translate(-50%,-50%)";
+    });
+    (function loop(){
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.transform = "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll("a, button, input, .card, .job, .project").forEach(function(el){
+      el.addEventListener("mouseenter", function(){ ring.classList.add("hover"); });
+      el.addEventListener("mouseleave", function(){ ring.classList.remove("hover"); });
+    });
+  }
+
+  /* ---------- Mobile nav ---------- */
+  var menuBtn = document.getElementById("menuBtn");
+  var navLinks = document.getElementById("navLinks");
+  function closeNav(){
+    if (!navLinks) return;
+    navLinks.classList.remove("open");
+    if (menuBtn){
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "Open menu");
+    }
+  }
+  if (menuBtn && navLinks){
+    menuBtn.addEventListener("click", function(){
+      var open = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+    navLinks.addEventListener("click", function(e){
+      if (e.target.tagName === "A") closeNav();
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape") closeNav();
+    });
+  }
+
+  /* ---------- Active section highlighting ---------- */
+  var sections = document.querySelectorAll("main section[id]");
+  var anchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  if ("IntersectionObserver" in window && sections.length){
+    var navObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          var id = en.target.id;
+          anchors.forEach(function(a){
+            if (a.getAttribute("href") === "#" + id) a.setAttribute("aria-current", "true");
+            else a.removeAttribute("aria-current");
+          });
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+    sections.forEach(function(s){ navObs.observe(s); });
+  }
+
+  /* ---------- Expandable jobs ---------- */
+  document.querySelectorAll(".toggle-job").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var panel = document.getElementById(btn.getAttribute("aria-controls"));
+      if (!panel) return;
+      var expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      panel.hidden = expanded;
+      btn.firstChild.nodeValue = expanded ? "Show responsibilities " : "Hide responsibilities ";
+    });
+  });
+
+  /* ---------- Certification search + filter ---------- */
+  var search = document.getElementById("certSearch");
+  var filters = document.querySelectorAll(".filter-btn");
+  var certs = document.querySelectorAll("#certGrid .card");
+  var empty = document.getElementById("certEmpty");
+  var active = "all";
+  function filterCerts(){
+    var q = (search ? search.value : "").toLowerCase().trim();
+    var shown = 0;
+    certs.forEach(function(c){
+      var cat = c.getAttribute("data-cat") || "";
+      var text = c.textContent.toLowerCase();
+      var ok = (active === "all" || cat === active) && (!q || text.indexOf(q) !== -1);
+      c.style.display = ok ? "" : "none";
+      if (ok) shown++;
+    });
+    if (empty) empty.hidden = shown !== 0;
+  }
+  if (search) search.addEventListener("input", filterCerts);
+  filters.forEach(function(b){
+    b.addEventListener("click", function(){
+      active = b.getAttribute("data-filter");
+      filters.forEach(function(x){ x.setAttribute("aria-pressed", String(x === b)); });
+      filterCerts();
+    });
+  });
+
+  /* ---------- Copy to clipboard ---------- */
+  var feedback = document.getElementById("copyFeedback");
+  var ft;
+  function showFb(msg){
+    if (!feedback) return;
+    feedback.textContent = msg;
+    clearTimeout(ft);
+    ft = setTimeout(function(){ feedback.textContent = ""; }, 2600);
+  }
+  document.querySelectorAll(".copy-btn").forEach(function(b){
+    b.addEventListener("click", function(e){
+      e.preventDefault(); e.stopPropagation();
+      var text = b.getAttribute("data-copy") || "";
+      if (!text) return;
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ showFb("Copied: " + text); })
+          .catch(function(){ showFb("Could not copy — please copy manually."); });
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = text; ta.style.position = "absolute"; ta.style.left = "-9999px";
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); showFb("Copied: " + text); }
+        catch(e){ showFb("Could not copy — please copy manually."); }
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
+  /* ---------- Back to top ---------- */
+  var top = document.getElementById("backTop");
+  if (top) top.addEventListener("click", function(){ window.scrollTo({ top: 0, behavior: "smooth" }); });
+
+  /* ---------- Rotating hero role ---------- */
+  var typed = document.getElementById("typedRole");
+  var roles = [
+    "Operations & Business Manager",
+    "General Accountant",
+    "Python & Django Developer",
+    "Procurement & Production Specialist",
+    "Business Development Leader"
+  ];
+  if (typed){
+    if (reduceMotion){
+      typed.textContent = roles[0];
+      typed.style.borderRight = "none";
+    } else {
+      var ri = 0, ci = 0, del = false;
+      (function tick(){
+        var w = roles[ri];
+        if (!del){
+          ci++; typed.textContent = w.slice(0, ci);
+          if (ci === w.length){ del = true; setTimeout(tick, 1700); return; }
+          setTimeout(tick, 62);
+        } else {
+          ci--; typed.textContent = w.slice(0, ci);
+          if (ci === 0){ del = false; ri = (ri + 1) % roles.length; setTimeout(tick, 280); return; }
+          setTimeout(tick, 28);
+        }
+      })();
+    }
+  }
+
+  /* ---------- Animated counters ---------- */
+  var counters = document.querySelectorAll("[data-count]");
+  if ("IntersectionObserver" in window && counters.length){
+    var cObs = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+        var suffix = el.getAttribute("data-suffix") || "";
+        var start = null;
+        function step(ts){
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / 1400, 1);
+          var val = Math.round(p * target);
+          el.textContent = val + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function(c){ cObs.observe(c); });
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  var reveals = document.querySelectorAll(".reveal, .reveal-scale");
+  if ("IntersectionObserver" in window && reveals.length){
+    var rObs = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          en.target.classList.add("in");
+          obs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function(el){ rObs.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ---------- Parallax on hero orb ---------- */
+  var orb = document.querySelector(".orb-wrap");
+  if (orb && !reduceMotion && window.matchMedia("(hover:hover)").matches){
+    window.addEventListener("mousemove", function(e){
+      var x = (e.clientX / window.innerWidth - 0.5) * 14;
+      var yy = (e.clientY / window.innerHeight - 0.5) * 14;
+      orb.style.transform = "translate(" + x + "px," + yy + "px)";
+    });
+  }
+
+})();
+</script>
+</body>
+</html>
